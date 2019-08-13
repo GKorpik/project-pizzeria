@@ -82,7 +82,7 @@ class Product{
   }
   
   initAccordion() {
-    const thisProduct = this
+    const thisProduct = this;
 
     /* find the clickable trigger (the element that should react to clicking) */
     const trigger = thisProduct.element.querySelector(select.menuProduct.clickable);
@@ -91,10 +91,10 @@ class Product{
     trigger.addEventListener('click', function(event) {
       /* prevent default action for event */
 
-      event.preventDefault()
+      event.preventDefault();
 
       /* toggle active class on element of thisProduct */
-      trigger.parentElement.classList.toggle('active')
+      trigger.classList.toggle('active');
 
       /* find all active products */
       const activeProducts = document.querySelectorAll(select.all.menuProductsActive)
@@ -104,7 +104,7 @@ class Product{
         /* START: if the active product isn't the element of thisProduct */
         if (thisProduct.element !== activeProduct) {
           /* remove class active for the active product */
-          activeProduct.classList.remove('active')
+          activeProduct.classList.remove('active');
           /* END: if the active product isn't the element of thisProduct */
         }
         /* END LOOP: for each active product */
@@ -116,25 +116,28 @@ class Product{
 
   const app = {
     initData: function() {
-      const thisApp = this
+      const thisApp = this;
 
-      thisApp.data = dataSource
-    },
+      thisApp.data = dataSource;
+    }
+
     initMenu: function() {
-      const thisApp = this
+      const thisApp = this;
       for (let productData in thisApp.data.products) {
         new Product(productData, thisApp.data.products[productData])
       }
-    },
+    }
+    
     init: function() {
-      const thisApp = this
-      console.log('*** App starting ***')
-      console.log('thisApp:', thisApp)
-      console.log('classNames:', classNames)
-      console.log('settings:', settings)
-      console.log('templates:', templates)
-      thisApp.initData()
-      thisApp.initMenu()
+      const thisApp = this;
+      console.log('*** App starting ***');
+      console.log('thisApp:', thisApp);
+      console.log('classNames:', classNames);
+      console.log('settings:', settings);
+      console.log('templates:', templates);
+
+      thisApp.initData();
+      thisApp.initMenu();
     }
   }
 
